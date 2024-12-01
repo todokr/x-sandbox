@@ -1,0 +1,23 @@
+name: Push image
+
+run-name: Push image ${{ github.ref }}
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: build typescript
+        working-directory: img-resizer
+        run: |
+          pnpm install
+          pnpm build
+      - name: build image
+        run: scripts/build-image.sh
+      - name: push image
+        run: scripts/push-image.sh
+

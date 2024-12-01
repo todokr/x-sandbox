@@ -1,0 +1,15 @@
+* iroiro sandbox
+
+** img-resizer
+
+*** terraform
+#+begin_src bash
+task img:infra
+#+end_src
+
+*** build & deploy lambda
+
+**** from local
+#+begin_src bash
+task img:release
+#+end_src

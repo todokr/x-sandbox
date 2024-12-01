@@ -1,0 +1,21 @@
+{
+  "name": "img-resizer",
+  "version": "202412.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "check": "tsc --noEmit",
+    "build": "esbuild src/index.ts --bundle --minify --sourcemap --platform=node --outfile=dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.701.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.146",
+    "esbuild": "^0.24.0"
+  }
+}

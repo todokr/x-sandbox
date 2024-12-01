@@ -1,0 +1,26 @@
+version: '3'
+
+tasks:
+  img:infra:
+    dir: terraform
+    cmd: terraform apply
+  img:build:
+    dir: img-resizer
+    cmds:
+      - pnpm build
+      - docker build -t img-resizer .
+  img:push:
+    env:
+      VERSION:
+        sh: cat ./img-resizer/package.json | jq -r .version
+    cmd: .github/workflows/scripts/push-image.sh
+  img:deploy-lambda:
+    env:
+      VERSION:
+        sh: cat ./img-resizer/package.json | jq -r .version
+    cmd: .github/workflows/scripts/deploy-lambda.sh
+  img:release:
+    cmds:
+      - task img:build
+      - task img:push
+      - task img:deploy-lambda

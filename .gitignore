@@ -1,0 +1,7 @@
+.envrc
+node_modules
+
+img-resizer/dist
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/.terraform*
