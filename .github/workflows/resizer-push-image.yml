@@ -17,7 +17,7 @@ jobs:
           npm install
           npm run build
       - name: build image
-        run: scripts/build-image.sh
+        run: .github/workflows/scripts/build-image.sh
       - name: push image
-        run: cat scripts/push-image.sh
+        run: cat .github/workflows/scripts/build-image.sh
 
