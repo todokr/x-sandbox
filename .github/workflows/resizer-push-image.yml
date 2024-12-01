@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-bats-version:
+  build-and-push-image:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -14,10 +14,10 @@ jobs:
       - name: build typescript
         working-directory: img-resizer
         run: |
-          pnpm install
-          pnpm build
+          npm install
+          npm run build
       - name: build image
         run: scripts/build-image.sh
       - name: push image
-        run: scripts/push-image.sh
+        run: cat scripts/push-image.sh
 
